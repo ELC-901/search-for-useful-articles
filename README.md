@@ -1,5 +1,5 @@
 <div align="center">
-<h1>Seacrh For Useful Articles</h1>
+<h1 style="color: #00aeff;">Seacrh For Useful Articles</h1>
 </div>
 <div align="center">
   
