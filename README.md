@@ -1,5 +1,5 @@
 <div align="center">
-<h1>search for useful articles with AI</h1>
+<h1>search for useful articles with</h1>
 </div>
 <div align="center">
   
