@@ -22,6 +22,24 @@
   
 <p1>🔹[Go to Google AI Studio](https://aistudio.google.com)</p1>
 
+<p1>🔹Sign in with your Google Account</p1>
 
+<p1>🔹Get your API Key</p1>
+
+<p1>🔸In the left sidebar, click on "Get API key" (or navigate to "API keys" section)</p1>
+
+<p1>🔸Click the button "Create API key"</p1>
+
+<p1>🔸You might be asked to create a new Google Cloud project. Just agree and let Google create one automatically (it's free)</p1>
+
+<p1>🔹Copy your key</p1>
+
+<p1>🔹Paste your key in programm when promted </p1>
+  
+</div>
+
+<div align="center">
+  
+<p1>I'd be glad if you give me a star and subscribe</p1>
 
 </div>
