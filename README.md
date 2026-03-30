@@ -39,7 +39,6 @@
 
 <p1>🔹 Copy your key</p1>
 
-<p1>🔹 Install the library: <code>pip install requests</code></p1>
 
 <p1>🔹 Paste your key in the program when prompted</p1>
   
