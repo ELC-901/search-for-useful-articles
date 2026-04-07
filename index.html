@@ -1,53 +1,321 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SFUA</title>
+    <title>SFUA — Search For Useful Articles</title>
     <link rel="stylesheet" href="style.css">
     <style>
-        html {
-            scroll-behavior: smooth;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
-    
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #f0f7ff;
+            color: #2c3e50;
+            line-height: 1.5;
+        }
+
+        .container {
+            width: 1000px;
+            margin: 0 auto;
+        }
+
+        /* Header */
+        .header {
+            background: #7ab3c8;
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        .header__container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 1000px;
+            margin: 0 auto;
+        }
+
+        .header__logo {
+            font-size: 22px;
+            font-weight: 700;
+            color: white;
+            text-decoration: none;
+            letter-spacing: -0.3px;
+        }
+
+        .header__nav ul {
+            display: flex;
+            gap: 28px;
+            list-style: none;
+        }
+
+        .header__nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 500;
+            transition: opacity 0.2s;
+        }
+
+        .header__nav a:hover {
+            opacity: 0.8;
+        }
+
+        /* Separator under header */
+        .separator-top {
+            height: 1px;
+            background: #cbdbe6;
+            width: 100%;
+        }
+
+        /* Main title */
+        .hero {
+            text-align: center;
+            padding: 80px 0 40px;
+        }
+
+        .hero__title {
+            font-size: 64px;
+            font-weight: 800;
+            line-height: 1.1;
+            letter-spacing: -1px;
+            color: #2c5a6e;
+            margin-bottom: 20px;
+        }
+
+        .hero__title span {
+            display: block;
+            color: #6d8e9c;
+            font-size: 20px;
+            font-weight: 400;
+            letter-spacing: 0;
+            margin-top: 16px;
+        }
+
+        /* Sections */
+        .section {
+            padding: 64px 0;
+            border-bottom: 1px solid #d4e0ec;
+        }
+
+        .section:last-child {
+            border-bottom: none;
+        }
+
+        .section__title {
+            font-size: 32px;
+            font-weight: 700;
+            color: #5b8c9e;
+            margin-bottom: 24px;
+            letter-spacing: -0.3px;
+        }
+
+        .section__text {
+            font-size: 18px;
+            color: #2c3e50;
+            width: 700px;
+            margin-bottom: 28px;
+        }
+
+        /* Button Start */
+        .btn-start {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: #7ab3c8;
+            color: white;
+            padding: 12px 28px;
+            font-size: 16px;
+            font-weight: 600;
+            border-radius: 40px;
+            text-decoration: none;
+            transition: all 0.2s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-start:hover {
+            background: #5f9bb3;
+            transform: translateY(-1px);
+        }
+
+        /* Instruction list */
+        .instruction-list {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .instruction-list li {
+            margin-bottom: 18px;
+            padding-left: 28px;
+            position: relative;
+            font-size: 16px;
+            color: #2c3e50;
+        }
+
+        .instruction-list li::before {
+            content: "▹";
+            position: absolute;
+            left: 0;
+            color: #7ab3c8;
+            font-size: 18px;
+        }
+
+        .instruction-list a {
+            color: #5b8c9e;
+            text-decoration: none;
+            border-bottom: 1px solid #cbdbe6;
+        }
+
+        .instruction-list a:hover {
+            color: #2c5a6e;
+        }
+
+        /* Repository block */
+        .repo-links {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin: 24px 0 28px;
+        }
+
+        .btn-repo {
+            display: inline-block;
+            padding: 10px 24px;
+            background: #eef3fc;
+            color: #5b8c9e;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 500;
+            font-size: 14px;
+            transition: background 0.2s;
+            border: 1px solid #cbdbe6;
+        }
+
+        .btn-repo:hover {
+            background: #dde9f5;
+        }
+
+        .btn-download {
+            display: inline-block;
+            padding: 10px 24px;
+            background: #7ab3c8;
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 500;
+            font-size: 14px;
+            transition: background 0.2s;
+        }
+
+        .btn-download:hover {
+            background: #5f9bb3;
+        }
+
+        .license-link {
+            color: #6d8e9c;
+            text-decoration: none;
+            border-bottom: 1px solid #cbdbe6;
+            font-size: 14px;
+        }
+
+        /* Contacts */
+        .contacts {
+            display: flex;
+            gap: 32px;
+            flex-wrap: wrap;
+            margin-top: 28px;
+        }
+
+        .contact-item a {
+            color: #2c3e50;
+            text-decoration: none;
+            font-size: 15px;
+            transition: color 0.2s;
+        }
+
+        .contact-item a:hover {
+            color: #7ab3c8;
+        }
+
+        /* Footer */
         .footer {
-            scroll-margin-top: 80px; 
+            background: #cbdbe6;
+            text-align: center;
+            padding: 32px 0;
+            font-size: 13px;
+            color: #2c5a6e;
+        }
+
+        .footer .container {
+            width: 1000px;
+            margin: 0 auto;
         }
     </style>
 </head>
 <body>
     <header class="header">
         <div class="header__container">
-            <a href="/" class="header__logo">
-                <span class="header__logo-text">Search For Useful Articles</span>
-            </a>
+            <a href="/" class="header__logo">SFUA</a>
             <nav class="header__nav">
-                <ul class="header__menu">
-                    <li><a href="#help">Help</a></li>
-                    <li><a href="https://t.me/ELC901">My Telegram</a></li>
-                    <li><a href="https://github.com/ELC-901/search-for-useful-articles">GitHub Repository</a></li>
+                <ul>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#install">How Install</a></li>
+                    <li><a href="#repository">Repository</a></li>
+                    <li><a href="https://t.me/ecl901">My Telegram</a></li>
                 </ul>
             </nav>
         </div>
     </header>
+    <div class="separator-top"></div>
 
     <main>
-        <div align="center" class="head">
-            <h1>Hello World</h1>
-            <p>This program allows you to search for useful articles using DeepSeek. It's fast and free.</p>
-            <p>This program working on Python</p>
-            <p>This program is free and open source</p>
-            <p>This program is made by <a href="https://github.com/ELC-901">ELC901</a></p>
-        </div>
-        
-        <div id="help" class="help-section" style="margin-top: 100vh;">
-            <h2>Help & Documentation</h2>
-            <p>Here will be information about how to use the program...</p>>
-            <p></p>
-        </div>
+        <section class="hero">
+            <div class="container">
+                <div class="hero__title">
+                    Search<br>For<br>Useful<br>Articles
+                    <span>by elc901</span>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="section">
+            <div class="container">
+                <h2 class="section__title">About Project</h2>
+                <div class="section__text">
+                    <strong>Text About Project</strong><br>
+                    Search For Useful Articles is a program that helps you find useful articles using DeepSeek AI. Fast, free, and open source.
+                    You will receive a free balance of 10 million tokens per month — enough for hundreds of searches
+                </div>
+                <a href="search.html" class="btn-start">▶ Start</a>
+            </div>
+        </section>
+
+        <section id="install" class="section">
+            <div class="container">
+                <h2 class="section__title">How Use It</h2>
+                <ul class="instruction-list">
+                    <li>Get API Key on <a href="https://platform.deepseek.com">DeepSeek Platform</a></li>
+                    <li>In the dashboard, navigate to "API Keys" section</li>
+                    <li>Click the button "Create new API key"</li>
+                    <li>Copy your key</li>
+                    <li>Paste your API key in the input field</li>
+                </ul>
+            </div>
+        </section>
     </main>
-    <footer id="footer" class="footer" style="margin-top: 100vh;">
-        <p>Footer content</p>
+
+    <footer class="footer">
+        <div class="container">
+            © 2026 Search For Useful Articles. Open source project.
+        </div>
     </footer>
 </body>
-</html> 
+</html>

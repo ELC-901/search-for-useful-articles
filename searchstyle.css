@@ -1,0 +1,80 @@
+/* searchstyle.css */
+
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: sans-serif;
+}
+
+/* Стили для заголовка */
+.head {
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.head h1 {
+    color: #b3c5cd;
+    font-size: 32px;
+    margin: 0;
+}
+
+/* Стили для контейнера с поиском */
+.center-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 70%;
+    background-color: #f0f0f0;
+}
+
+/* Стили для поисковой строки */
+.search-box {
+    width: 300px;
+    padding: 12px 20px;
+    font-size: 16px;
+    border: 2px solid #ccc;
+    border-radius: 25px;
+    outline: none;
+    background-color: #5f9bb3;
+    color: #2c5a6e;
+}
+
+.search-box::placeholder {
+    color: black;  
+    opacity: 1; 
+}
+
+.search-box:hover {
+    border-color: #105ee5;
+    cursor: text;
+}
+
+.search-box:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.5);
+    background-color: #fff;
+}
+
+.search-box::placeholder {
+    color: #2c5a6e;
+    font-style: italic;
+}
+
+.center-container {
+    background-color: rgb(124, 162, 180);
+    border-radius: 200px;
+}
+
+body {
+    background-color: rgb(67, 106, 124);
+}
+
+.search-btn {
+    text-align: center;
+}
+.search-btn:hover { 
+    border-color: #105ee5;
+    cursor: pointer; !important
+}
